@@ -1,0 +1,32 @@
+<div class="row" ng-controller="searchDirectiveController as searchDirective">
+
+    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+
+        <div class="card border-primary">
+            <div class="card-header">Book Search</div>
+            <div class="card-body text-primary">
+                <h4 class="card-title">Enter text to search for a book</h4>
+
+                <div class="row">
+
+                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                        <input type="text" name="" id="input${1/(\w+)/\u\1/g}" class="form-control" value="Perl" required="required" pattern="" title="" ng-model="searchDirective.form.searchTerm">
+                    </div>
+
+                </div>
+
+
+                <div class="row">
+
+                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                        <button type="button" class="btn btn-primary btn-search" ng-click="searchDirective.search()">Search</button>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+
+</div>

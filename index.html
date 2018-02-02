@@ -1,0 +1,46 @@
+<html ng-app="AngularBook">
+
+<head>
+    <link rel="stylesheet" href="src/css/vendor-lib/bootstrap.min.css">
+    <link rel="stylesheet" href="src/css/style.css">
+</head>
+
+<body>
+
+    <div class="container">
+
+        <div class="row">
+
+            <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+                <side-bar></side-bar>
+            </div>
+
+
+            <div class="col-xs-9 col-sm-9 col-md-9 col-lg-9" ng-controller="resultsController as results">
+
+
+                <div class="row">
+                    <div ng-repeat="book in results.data.books">
+                        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                        <book-card book="{book}"></book-card>
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+
+        </div>
+
+
+    </div>
+
+
+</body>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.7/angular.min.js"></script>
+<script src="src/js/vendor-lib/ui-bootstrap-tpls-2.5.0.min.js"></script>
+<script src="src/js/index.js"></script>
+
+</html>
