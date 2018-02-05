@@ -9,3 +9,29 @@
 .pull-right {
     float: right !important;
 }
+
+.book-descr{
+    max-height: 200px;
+    overflow: auto;
+}
+
+.favorite-button {
+    font-size: 1.5em;
+}
+
+
+.book-title {
+    font-weight: bold;
+}
+
+.container {
+    margin-top: 50px;
+}
+
+.card {
+    height: 400px;
+}
+
+.pagination {
+    margin: 10px;
+}

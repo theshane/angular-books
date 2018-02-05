@@ -8,19 +8,21 @@
             </div>
 
             <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
-                <div class="card-text">{{book.volumeInfo.description}}</div>
+                <div class="card-text book-descr">{{book.volumeInfo.description}}</div>
             </div>
 
         </div>
-
+</div>
+<div class="card-footer">
 
         <div class="row">
 
             <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
                 <div class="pull-right">
-
-                    <a ng-href='{{book.volumeInfo.previewLink}}' class="btn btn-danger" target="_blank">Buy</a>
-
+                    <a ng-href='{{book.volumeInfo.previewLink}}' class="btn btn-danger" target="_blank"><i class="fa fa-shopping-cart"/> Buy</a>
+                </div>
+                <div>
+                  <span ng-repeat="star in starClasses track by $index"><i class="fa {{star}}"/></span>
                 </div>
             </div>
 

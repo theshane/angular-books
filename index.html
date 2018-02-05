@@ -1,11 +1,29 @@
 <html ng-app="AngularBook">
 
 <head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
     <link rel="stylesheet" href="src/css/vendor-lib/bootstrap.min.css">
     <link rel="stylesheet" href="src/css/style.css">
 </head>
 
 <body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+        <a class="navbar-brand" href="#">Book Search</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01" aria-controls="navbarColor01"
+            aria-expanded="false" aria-label="Toggle navigation" style="">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarColor01">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="#">Home
+                        <span class="sr-only">(current)</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </nav>
 
     <div class="container">
 
@@ -15,19 +33,68 @@
                 <side-bar></side-bar>
             </div>
 
+            <div class="col-xs-9 col-sm-9 col-md-9 col-lg-9" ng-hide="results.data.books.length" ng-controller="resultsController as results">
+                <div class="alert alert-info" ng-if="!results.searchTerm">
+                    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                    <strong>Welcome!</strong>
+                    <p>Please use the Book Search panel on the left to begin</p>
+                </div>
 
-            <div class="col-xs-9 col-sm-9 col-md-9 col-lg-9" ng-controller="resultsController as results">
+                <div class="alert alert-danger" ng-if="results.searchTerm">
+                    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                    <strong>Sorry</strong>
+                    <p>No Results Found</p>
+                </div>
 
+            </div>
+            <div class="col-xs-9 col-sm-9 col-md-9 col-lg-9" ng-show="results.data.books.length" ng-controller="resultsController as results">
 
                 <div class="row">
-                    <div ng-repeat="book in results.data.books">
-                        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                        <book-card book="{book}"></book-card>
-                        </div>
+
+                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                        <h4>Search Results for {{results.searchTerm}}</h4>
+                    </div>
+
+                </div>
+
+                <div class="row">
+                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                        <ul class="pagination">
+                            <li class="page-item" ng-if="results.state.currentPage > 1">
+                                <a class="page-link" href="#" ng-click="results.lastPage()">&laquo;</a>
+                            </li>
+                            <li class="page-item active">
+                                <a class="page-link" href="#" disabled>{{results.state.currentPage}}</a>
+                            </li>
+                            <li class="page-item">
+                                <a class="page-link" href="#" ng-click="results.nextPage()">&raquo;</a>
+                            </li>
+                        </ul>
                     </div>
                 </div>
 
 
+                <div class="row">
+                    <div ng-repeat="book in results.data.books" class="col-xs-12 col-sm-12 col-md-6 col-lg-4">
+                        <book-card book="{book}"></book-card>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                        <ul class="pagination">
+                            <li class="page-item" ng-if="results.state.currentPage > 1">
+                                <a class="page-link" href="#" ng-click="results.lastPage()">&laquo;</a>
+                            </li>
+                            <li class="page-item active">
+                                <a class="page-link" href="#" disabled>{{results.state.currentPage}}</a>
+                            </li>
+                            <li class="page-item">
+                                <a class="page-link" href="#" ng-click="results.nextPage()">&raquo;</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
             </div>
 
         </div>
